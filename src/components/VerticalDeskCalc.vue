@@ -10,6 +10,10 @@
       };
     },
     methods: {
+      clear() {
+        this.deskSize = 0;
+        this.totalLength = 0;
+      },
       calcDesk(): number {
         return this.totalLength / this.deskSize;
       },
@@ -18,8 +22,8 @@
       calculateDesk(): number {
         return this.calcDesk();
       },
-      calculateFullSizeDesks(): string {
-        return Math.floor(this.totalLength / this.deskSize).toString();
+      calculateFullSizeDesks(): number {
+        return Math.floor(this.totalLength / this.deskSize);
       },
       calculateMissingPart(): number {
         const fullDesk = Math.floor(this.totalLength / this.deskSize);
@@ -49,7 +53,7 @@
         <v-card-text>
           <v-text-field v-model="totalLength" label="total length (cm)" type="number" />
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions v-if="deskSize && totalLength">
           <div>
             <h4>To cover you need: {{}}</h4>
             <h2>
@@ -67,6 +71,9 @@
               </ul>
             </h4>
           </div>
+        </v-card-actions>
+        <v-card-actions v-else>
+          <h4>Provide desk size and total length of the wall</h4>
         </v-card-actions>
       </v-card>
     </v-container>
