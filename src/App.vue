@@ -4,13 +4,34 @@
       <v-app-bar absolute color="deep-purple">
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-toolbar-title>Title</v-toolbar-title>
+        <v-toolbar-title>Fasadeplate</v-toolbar-title>
       </v-app-bar>
       <v-navigation-drawer v-model="drawer" absolute fixed app temporary>
-        <v-list nav dense> </v-list>
+        <v-list nav dense>
+          <v-list-item
+            @click="
+              {
+                {
+                  this.$router.push('/diagonal');
+                }
+              }
+            "
+            >Calc diagonal</v-list-item
+          >
+          <v-list-item
+            @click="
+              {
+                {
+                  this.$router.push('/vertical');
+                }
+              }
+            "
+            >Vertical calc</v-list-item
+          >
+        </v-list>
       </v-navigation-drawer>
       <v-main>
-        <v-card class="mx-auto overflow-hidden"><router-view></router-view></v-card>
+        <router-view></router-view>
       </v-main>
     </v-layout>
   </v-app>
