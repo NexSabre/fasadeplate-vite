@@ -38,18 +38,18 @@
 </template>
 
 <script>
-  import DiagonalVue from "./components/Diagonal.vue";
+import DiagonalVue from "./components/Diagonal.vue";
 
-  export default {
-    name: "App",
+export default {
+  name: "App",
 
-    components: {
-      DiagonalVue,
-    },
+  components: {
+    DiagonalVue,
+  },
 
-    data: () => ({
-      drawer: false,
-      group: null,
-    }),
-  };
+  data: () => ({
+    drawer: false,
+    group: null,
+  }),
+};
 </script>

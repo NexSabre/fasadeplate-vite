@@ -1,0 +1,15 @@
+name: CI
+on: [push]
+
+jobs:
+  verify-js:
+    name: Code verification *.js/*.ts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo npm install -g prettier
+      - name: Verify code (js w/prettier)
+        run: |
+          prettier --check src/
