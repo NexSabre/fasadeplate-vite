@@ -20,7 +20,7 @@
           @click="
             {
               {
-                this.$router.push('/diagonal');
+                this.$router.push('/');
               }
             }
           "
@@ -34,8 +34,8 @@
               }
             }
           "
-          ><v-icon>mdi-arrow-top-left-bottom-right</v-icon>Calc
-          diagonal</v-list-item
+          ><v-icon>mdi-arrow-top-left-bottom-right</v-icon>Diagonal
+          calc</v-list-item
         >
         <v-list-item
           @click="
@@ -47,6 +47,17 @@
           "
           ><v-icon>mdi-arrow-split-vertical</v-icon>Vertical calc</v-list-item
         >
+        <v-list-item
+          @click="
+            {
+              {
+                this.$router.push('/boardonboard');
+              }
+            }
+          "
+        >
+          <v-icon>mdi-format-columns</v-icon> Board-on-board calc
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main>
