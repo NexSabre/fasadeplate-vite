@@ -1,59 +1,58 @@
 <template>
   <v-app>
-    <v-layout style="overflow: hidden">
-      <v-app-bar absolute color="deep-purple">
-        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar absolute color="deep-purple" app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-toolbar-title
+      <v-toolbar-title
+        @click="
+          {
+            {
+              this.$router.push('/');
+            }
+          }
+        "
+        >Fasadeplate</v-toolbar-title
+      >
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list nav dense>
+        <v-list-item
           @click="
             {
               {
-                this.$router.push('/');
+                this.$router.push('/diagonal');
               }
             }
           "
-          >Fasadeplate</v-toolbar-title
+          ><v-icon>mdi-home-minus-outline</v-icon>Home</v-list-item
         >
-      </v-app-bar>
-      <v-navigation-drawer v-model="drawer" absolute fixed app temporary>
-        <v-list nav dense>
-          <v-list-item
-            @click="
+        <v-list-item
+          @click="
+            {
               {
-                {
-                  this.$router.push('/diagonal');
-                }
+                this.$router.push('/diagonal');
               }
-            "
-            ><v-icon>mdi-home-minus-outline</v-icon>Home</v-list-item
-          >
-          <v-list-item
-            @click="
+            }
+          "
+          ><v-icon>mdi-arrow-top-left-bottom-right</v-icon>Calc
+          diagonal</v-list-item
+        >
+        <v-list-item
+          @click="
+            {
               {
-                {
-                  this.$router.push('/diagonal');
-                }
+                this.$router.push('/vertical');
               }
-            "
-            ><v-icon>mdi-arrow-top-left-bottom-right</v-icon>Calc
-            diagonal</v-list-item
-          >
-          <v-list-item
-            @click="
-              {
-                {
-                  this.$router.push('/vertical');
-                }
-              }
-            "
-            ><v-icon>mdi-arrow-split-vertical</v-icon>Vertical calc</v-list-item
-          >
-        </v-list>
-      </v-navigation-drawer>
-      <v-main>
-        <router-view></router-view>
-      </v-main>
-    </v-layout>
+            }
+          "
+          ><v-icon>mdi-arrow-split-vertical</v-icon>Vertical calc</v-list-item
+        >
+      </v-list>
+    </v-navigation-drawer>
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+    <!-- <v-footer app bottom fixed padless></v-footer> -->
   </v-app>
 </template>
 

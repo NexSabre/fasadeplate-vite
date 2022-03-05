@@ -35,10 +35,10 @@ export default defineComponent({
 
 <template>
   <div>
-    <v-container>
+    <v-container fluid>
       <v-card class="mx-auto" variant="outlined">
         <v-card-header>
-          <v-icon>mdi-arrow-top-left-bottom-right</v-icon>Desk Calculator
+          <v-icon>mdi-arrow-split-vertical</v-icon>Desk Calculator
         </v-card-header>
         <v-card-text>
           <v-text-field
