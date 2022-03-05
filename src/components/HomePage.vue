@@ -20,16 +20,32 @@ export default defineComponent({
   <div>
     <v-container>
       <v-card class="mx-auto" variant="outlined" @click="goTo('diagonal')">
-        <v-card-header-text>Diagonal</v-card-header-text>
+        <v-card-header
+          ><v-icon>mdi-home-minus-outline</v-icon> Diagnoal
+        </v-card-header>
         <v-card-subtitle
-          >calculate diagonal base on the short and long edge</v-card-subtitle
+          >calculate diagonal base on the short and long edge.</v-card-subtitle
         >
       </v-card>
       <br />
       <v-card class="mx-auto" variant="outlined" @click="goTo('vertical')">
-        <v-card-header-text>Vertical calculator</v-card-header-text>
+        <v-card-header
+          ><v-icon>mdi-arrow-top-left-bottom-right</v-icon> Vertical
+          calculator</v-card-header
+        >
         <v-card-subtitle>
-          Calculate how many desk you need for wall
+          Calculate how many desk you need for wall.
+        </v-card-subtitle>
+      </v-card>
+      <br />
+      <v-card class="mx-auto" variant="outlined" @click="goTo('boardonboard')">
+        <v-card-header
+          ><v-icon>mdi-format-columns</v-icon> Board-on-board
+          calculator</v-card-header
+        >
+        <v-card-subtitle>
+          Calculate positions if you want to lay a plank facade where one row
+          overlaps the other.
         </v-card-subtitle>
       </v-card>
     </v-container>

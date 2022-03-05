@@ -20,7 +20,7 @@
           @click="
             {
               {
-                this.$router.push('/diagonal');
+                this.$router.push('/');
               }
             }
           "
@@ -51,7 +51,7 @@
           @click="
             {
               {
-                this.$router.push('/deskondesk');
+                this.$router.push('/boardonboard');
               }
             }
           "
