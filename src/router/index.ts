@@ -3,6 +3,8 @@ import DiagonalVue from "@/components/Diagonal.vue";
 import HomePageVue from "@/components/HomePage.vue";
 import VerticalDeskCalcVue from "@/components/VerticalDeskCalc.vue";
 
+import DeskOnDesk from "@/components/DeskOnDesk.vue";
+
 const routes = [
   {
     path: "/",
@@ -18,6 +20,11 @@ const routes = [
     path: "/vertical",
     name: "Vertical",
     component: VerticalDeskCalcVue,
+  },
+  {
+    path: "/deskondesk",
+    name: "DeskOnDesk",
+    component: DeskOnDesk,
   },
 ];
 

@@ -14,12 +14,12 @@ export default defineComponent({
     msg: String,
   },
   computed: {
-    calculate(): string | number {
+    calculate(): string {
       const floatCalc = Math.sqrt(
         Math.pow(this.textFieldShort, 2) + Math.pow(this.textFieldLong, 2)
       );
 
-      return floatCalc !== 0 ? floatCalc.toFixed(3) : 0;
+      return floatCalc !== 0 ? floatCalc.toFixed(3) : "0";
     },
   },
 });

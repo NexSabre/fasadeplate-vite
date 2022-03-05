@@ -1,3 +1,21 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "HomePage",
+  methods: {
+    goTo(pageName: string): any {
+      this.$router.push(`/${pageName}`);
+    },
+  },
+  data() {
+    return {
+      test: 0,
+    };
+  },
+});
+</script>
+
 <template>
   <div>
     <v-container>
@@ -17,21 +35,3 @@
     </v-container>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "HomePage",
-  methods: {
-    goTo(pageName: string): any {
-      this.$router.push(`/${pageName}`);
-    },
-  },
-  data() {
-    return {
-      test: 0,
-    };
-  },
-});
-</script>
