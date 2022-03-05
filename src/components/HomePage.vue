@@ -1,8 +1,40 @@
 <template>
   <div>
-    <v-card> Card1 </v-card>
-
-    <v-card>Card2</v-card>
+    <v-container>
+      <v-card
+        class="mx-auto"
+        variant="outlined"
+        @click="
+          {
+            {
+              this.$router.push('/diagonal');
+            }
+          }
+        "
+      >
+        <v-card-header-text>Diagonal</v-card-header-text>
+        <v-card-subtitle
+          >calculate diagonal base on the short and long edge</v-card-subtitle
+        >
+      </v-card>
+      <br />
+      <v-card
+        class="mx-auto"
+        variant="outlined"
+        @click="
+          {
+            {
+              this.$router.push('/vertical');
+            }
+          }
+        "
+      >
+        <v-card-header-text>Vertical calculator</v-card-header-text>
+        <v-card-subtitle>
+          Calculate how many desk you need for wall
+        </v-card-subtitle>
+      </v-card>
+    </v-container>
   </div>
 </template>
 

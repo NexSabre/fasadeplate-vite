@@ -4,7 +4,16 @@
       <v-app-bar absolute color="deep-purple">
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-toolbar-title>Fasadeplate</v-toolbar-title>
+        <v-toolbar-title
+          @click="
+            {
+              {
+                this.$router.push('/');
+              }
+            }
+          "
+          >Fasadeplate</v-toolbar-title
+        >
       </v-app-bar>
       <v-navigation-drawer v-model="drawer" absolute fixed app temporary>
         <v-list nav dense>
