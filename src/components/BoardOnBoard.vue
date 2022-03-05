@@ -12,8 +12,6 @@ export default defineComponent({
       bestOverlay: 0.0,
       minOverlay: 1.5,
       maxOverlay: 2.5,
-
-      infinityE: false,
     };
   },
   methods: {
@@ -21,6 +19,10 @@ export default defineComponent({
       this.bottomDesk = 0;
       this.upperDesk = 0;
       this.totalLength = 0;
+    },
+    setBtn(value: number) {
+      this.bottomDesk = value;
+      this.upperDesk = value;
     },
     calculatePartLength(overlay: number): number {
       return this.bottomDesk - overlay + this.upperDesk - overlay;
@@ -79,6 +81,17 @@ export default defineComponent({
         board</v-card-header-text
       >
       <v-card-text>
+        <v-row justify="center">
+          <v-col>Common boards (in cm)</v-col>
+        </v-row>
+
+        <v-row justify="center">
+          <v-btn @click="setBtn(12.3)">12,3</v-btn><v-spacer> </v-spacer>
+          <v-btn @click="setBtn(14.8)">14,8</v-btn><v-spacer> </v-spacer>
+          <v-btn @click="setBtn(17.3)">17,3</v-btn>
+        </v-row>
+      </v-card-text>
+      <v-card-text>
         Bottom desk (cm)
         <v-text-field
           v-model="bottomDesk"
@@ -86,17 +99,15 @@ export default defineComponent({
           type="number"
           clearable
         />
-      </v-card-text>
-      <v-card-text
-        >Upper desk (cm)
+
+        Upper desk (cm)
         <v-text-field
           v-model="upperDesk"
           label="Upper desk (cm)"
           type="number"
           clearable
         />
-      </v-card-text>
-      <v-card-text>
+
         Total length (cm) from the edge of the first board to the edge of the
         last one
         <v-text-field
