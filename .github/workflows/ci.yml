@@ -14,9 +14,13 @@ jobs:
         run: |
           prettier --check src/
   build_and_deploy:
+    name: Build and deploy to firebase
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' }}
     needs: [verify-js]
+    environment:
+      name: production
+      url: https://fasadeplate-vite.web.app
     steps:
       - uses: actions/checkout@v2
       - run: npm install -g yarn vue-tsc && yarn && yarn build
