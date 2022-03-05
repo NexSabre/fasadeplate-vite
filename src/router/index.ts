@@ -3,7 +3,7 @@ import DiagonalVue from "@/components/Diagonal.vue";
 import HomePageVue from "@/components/HomePage.vue";
 import VerticalDeskCalcVue from "@/components/VerticalDeskCalc.vue";
 
-import DeskOnDesk from "@/components/DeskOnDesk.vue";
+import BoardOnBoard from "@/components/BoardOnBoard.vue";
 
 const routes = [
   {
@@ -22,9 +22,9 @@ const routes = [
     component: VerticalDeskCalcVue,
   },
   {
-    path: "/deskondesk",
-    name: "DeskOnDesk",
-    component: DeskOnDesk,
+    path: "/boardonboard",
+    name: "BoardOnBoard",
+    component: BoardOnBoard,
   },
 ];
 

@@ -56,7 +56,7 @@
             }
           "
         >
-          <v-icon>mdi-format-columns</v-icon> Desk-on-desk calc
+          <v-icon>mdi-format-columns</v-icon> Board-on-board calc
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
