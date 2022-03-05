@@ -1,8 +1,6 @@
 <template>
   <v-app>
     <v-app-bar absolute color="deep-purple" app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
       <v-toolbar-title
         @click="
           {
@@ -11,7 +9,11 @@
             }
           }
         "
-        >Fasadeplate</v-toolbar-title
+      >
+        <v-btn @click="drawer = !drawer" color="primary " icon
+          ><v-icon>mdi-menu</v-icon></v-btn
+        >
+        Fasadeplate</v-toolbar-title
       >
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>
