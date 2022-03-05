@@ -7,7 +7,7 @@ export default defineComponent({
     return {
       bottomDesk: 14.8,
       upperDesk: 14.8,
-      totalLength: 345.5,
+      totalLength: 0,
       overlay: 2.5,
       bestOverlay: 0.0,
       minOverlay: 1.5,
@@ -130,6 +130,11 @@ export default defineComponent({
               <li v-for="desk in bestCalculateSummary">{{ desk }} (cm)</li>
             </ul>
           </v-col>
+        </v-row>
+      </v-card-actions>
+      <v-card-actions v-else-if="totalLength == 0">
+        <v-row justify="center">
+          <v-chip color="red"> ☝️ Provide a total length 📏</v-chip>
         </v-row>
       </v-card-actions>
       <v-card-actions v-else> Provide correct data </v-card-actions>
