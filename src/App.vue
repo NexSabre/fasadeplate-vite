@@ -25,7 +25,18 @@
                 }
               }
             "
-            >Calc diagonal</v-list-item
+            ><v-icon>mdi-home-minus-outline</v-icon>Home</v-list-item
+          >
+          <v-list-item
+            @click="
+              {
+                {
+                  this.$router.push('/diagonal');
+                }
+              }
+            "
+            ><v-icon>mdi-arrow-top-left-bottom-right</v-icon>Calc
+            diagonal</v-list-item
           >
           <v-list-item
             @click="
@@ -35,7 +46,7 @@
                 }
               }
             "
-            >Vertical calc</v-list-item
+            ><v-icon>mdi-arrow-split-vertical</v-icon>Vertical calc</v-list-item
           >
         </v-list>
       </v-navigation-drawer>
