@@ -20,6 +20,7 @@ export default defineComponent({
   <div>
     <v-container>
       <v-card class="mx-auto" elevation="5" @click="goTo('diagonal')">
+        <v-img src="assets/diagonal.png" cover></v-img>
         <v-card-header
           ><v-icon>mdi-arrow-top-left-bottom-right</v-icon> Diagonal calculator
         </v-card-header>
@@ -30,6 +31,7 @@ export default defineComponent({
       <br />
 
       <v-card class="mx-auto" elevation="5" @click="goTo('vertical')">
+        <v-img src="assets/vertical_desk.png" cover></v-img>
         <v-card-header
           ><v-icon>mdi-arrow-split-vertical</v-icon> Vertical
           calculator</v-card-header
@@ -54,6 +56,7 @@ export default defineComponent({
       <br />
 
       <v-card class="mx-auto" elevation="5" @click="goTo('runnigmeter')">
+        <v-img src="assets/vertical_desk_2.png" cover></v-img>
         <v-card-header
           ><v-icon>mdi-pillar</v-icon> Linear meter calculator</v-card-header
         >

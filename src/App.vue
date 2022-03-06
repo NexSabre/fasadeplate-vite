@@ -23,7 +23,8 @@
       >
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>
-      <v-list nav dense>
+      <v-list shaped>
+        <v-list-subheader>HOME</v-list-subheader>
         <v-list-item
           @click="
             {
@@ -34,6 +35,7 @@
           "
           ><v-icon>mdi-home-minus-outline</v-icon>Home</v-list-item
         >
+        <v-list-subheader>CALCULATORS</v-list-subheader>
         <v-list-item
           @click="
             {

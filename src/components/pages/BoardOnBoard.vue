@@ -98,11 +98,13 @@ export default defineComponent({
           <v-col>Common boards (in cm)</v-col>
         </v-row>
 
-        <v-row justify="center">
-          <v-btn @click="setBtn(12.3)">12,3</v-btn><v-spacer> </v-spacer>
-          <v-btn @click="setBtn(14.8)">14,8</v-btn><v-spacer> </v-spacer>
-          <v-btn @click="setBtn(17.3)">17,3</v-btn>
-        </v-row>
+        <div
+          class="d-flex justify-space-around align-center flex-column flex-md-row fill-height"
+        >
+          <v-btn @click="setBtn(12.3)" rounded="lg" color="orange">12,3</v-btn>
+          <v-btn @click="setBtn(14.8)" rounded="lg" color="orange">14,8</v-btn>
+          <v-btn @click="setBtn(17.3)" rounded="lg" color="orange">17,3</v-btn>
+        </div>
       </v-card-text>
       <v-card-text>
         Bottom desk (cm)
