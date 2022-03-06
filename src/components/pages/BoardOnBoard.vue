@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import ChipInformation from "./core/chipInformation.vue";
+
+import chipInformation from "../core/chipInformation.vue";
 
 export default defineComponent({
   name: "BoardOnBoard",
@@ -78,7 +79,7 @@ export default defineComponent({
       );
     },
   },
-  components: { ChipInformation },
+  components: { chipInformation },
 });
 </script>
 

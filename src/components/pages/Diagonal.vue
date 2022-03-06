@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import ChipInformation from "./core/chipInformation.vue";
+import chipInformation from "../core/chipInformation.vue";
 
 export default defineComponent({
   name: "DiagonalVue",
@@ -25,7 +25,7 @@ export default defineComponent({
       return floatCalc;
     },
   },
-  components: { ChipInformation },
+  components: { chipInformation },
 });
 </script>
 
