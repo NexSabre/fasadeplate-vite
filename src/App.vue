@@ -48,21 +48,20 @@
 </template>
 
 <script>
+import { defineComponent } from "vue";
 import DiagonalVue from "./components/pages/Diagonal.vue";
 import { navigationItemCalculators, navigationItems } from "@/router/routes";
 
-export default {
+export default defineComponent({
   name: "App",
-
   components: {
     DiagonalVue,
   },
-
   data: () => ({
     drawer: false,
     group: null,
     navigationItems: navigationItems,
     navigationCalcs: navigationItemCalculators,
   }),
-};
+});
 </script>
