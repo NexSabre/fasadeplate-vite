@@ -99,7 +99,7 @@ export default defineComponent({
         </v-row>
 
         <div
-          class="d-flex justify-space-around align-center flex-column flex-md-row fill-height"
+          class="d-flex justify-space-around align-center flex-md-row fill-height"
         >
           <v-btn @click="setBtn(12.3)" rounded="lg" color="orange">12,3</v-btn>
           <v-btn @click="setBtn(14.8)" rounded="lg" color="orange">14,8</v-btn>
