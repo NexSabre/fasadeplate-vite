@@ -28,6 +28,7 @@ export default defineComponent({
         >
       </v-card>
       <br />
+
       <v-card class="mx-auto" variant="outlined" @click="goTo('vertical')">
         <v-card-header
           ><v-icon>mdi-arrow-split-vertical</v-icon> Vertical
@@ -38,6 +39,7 @@ export default defineComponent({
         </v-card-subtitle>
       </v-card>
       <br />
+
       <v-card class="mx-auto" variant="outlined" @click="goTo('boardonboard')">
         <v-img src="assets/board_on_board.png" cover></v-img>
         <v-card-header
@@ -49,6 +51,17 @@ export default defineComponent({
           overlaps the other.
         </v-card-subtitle>
       </v-card>
+      <br />
+
+      <v-card class="mx-auto" variant="outlined" @click="goTo('runnigmeter')">
+        <v-card-header
+          ><v-icon>mdi-pillar</v-icon> Linear meter calculator</v-card-header
+        >
+        <v-card-subtitle>
+          Calculate how many desk in currect meter you need.
+        </v-card-subtitle>
+      </v-card>
+      <br />
     </v-container>
   </div>
 </template>

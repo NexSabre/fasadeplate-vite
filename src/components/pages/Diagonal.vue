@@ -34,7 +34,7 @@ export default defineComponent({
     <v-container>
       <v-card class="mx-auto" variant="outlined">
         <v-card-header>
-          <v-icon>mdi-arrow-top-left-bottom-right</v-icon>Diagonal Card
+          <v-icon>mdi-arrow-top-left-bottom-right</v-icon>Diagonal Calculator
         </v-card-header>
         <v-card-text>
           Short
