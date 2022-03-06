@@ -21,7 +21,7 @@ export default defineComponent({
     <v-container>
       <v-card class="mx-auto" variant="outlined" @click="goTo('diagonal')">
         <v-card-header
-          ><v-icon>mdi-home-minus-outline</v-icon> Diagnoal
+          ><v-icon>mdi-arrow-top-left-bottom-right</v-icon> Diagonal calculator
         </v-card-header>
         <v-card-subtitle
           >Calculate diagonal base on the short and long edge.</v-card-subtitle
@@ -30,7 +30,7 @@ export default defineComponent({
       <br />
       <v-card class="mx-auto" variant="outlined" @click="goTo('vertical')">
         <v-card-header
-          ><v-icon>mdi-arrow-top-left-bottom-right</v-icon> Vertical
+          ><v-icon>mdi-arrow-split-vertical</v-icon> Vertical
           calculator</v-card-header
         >
         <v-card-subtitle>

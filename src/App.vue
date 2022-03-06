@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       absolute
-      color="#212121"
+      color="#500000"
       style="color: white"
       app
       image="assets/app_bar.png"
