@@ -66,6 +66,18 @@
         >
           <v-icon>mdi-format-columns</v-icon> Board-on-board calc
         </v-list-item>
+
+        <v-list-item
+          @click="
+            {
+              {
+                this.$router.push('/runnigmeter');
+              }
+            }
+          "
+        >
+          <v-icon> mdi-pillar </v-icon> Running meter calc
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main>
@@ -76,7 +88,7 @@
 </template>
 
 <script>
-import DiagonalVue from "./components/Diagonal.vue";
+import DiagonalVue from "./components/pages/Diagonal.vue";
 
 export default {
   name: "App",

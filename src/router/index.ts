@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
-import DiagonalVue from "@/components/Diagonal.vue";
-import HomePageVue from "@/components/HomePage.vue";
-import VerticalDeskCalcVue from "@/components/VerticalDeskCalc.vue";
+import DiagonalVue from "@/components/pages/Diagonal.vue";
+import VerticalDeskCalcVue from "@/components/pages/VerticalDeskCalc.vue";
+import BoardOnBoardVue from "@/components/pages/BoardOnBoard.vue";
+import RunningMeterVue from "@/components/pages/RunningMeterCalc.vue";
 
-import BoardOnBoard from "@/components/BoardOnBoard.vue";
+import HomePageVue from "@/components/HomePage.vue";
 
 const routes = [
   {
@@ -24,7 +25,12 @@ const routes = [
   {
     path: "/boardonboard",
     name: "BoardOnBoard",
-    component: BoardOnBoard,
+    component: BoardOnBoardVue,
+  },
+  {
+    path: "/runnigmeter",
+    name: "RunningMeter",
+    component: RunningMeterVue,
   },
 ];
 

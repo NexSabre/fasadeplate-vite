@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import ChipInformation from "./core/chipInformation.vue";
+import chipInformation from "../core/chipInformation.vue";
 
 export default defineComponent({
   name: "VerticalDeskCalc",
@@ -43,14 +43,14 @@ export default defineComponent({
       return this.totalLength % this.deskSize > 0;
     },
   },
-  components: { ChipInformation },
+  components: { chipInformation },
 });
 </script>
 
 <template>
   <div>
     <v-container fluid>
-      <v-card class="mx-auto" variant="outlined">
+      <v-card class="mx-auto" elevation="5">
         <v-card-header>
           <v-icon>mdi-arrow-split-vertical</v-icon>Desk Calculator
         </v-card-header>
@@ -64,7 +64,7 @@ export default defineComponent({
 
         <v-card-actions v-if="deskSize && totalLength">
           <div>
-            <h4>To cover you need: {{}}</h4>
+            <h4>To cover you need:</h4>
             <h2>
               Full desk {{ calculateFullSizeDesks }}
               <small v-show="calculateClippings"> + 1 for clippings.</small>

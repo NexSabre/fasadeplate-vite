@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import ChipInformation from "./core/chipInformation.vue";
+
+import chipInformation from "../core/chipInformation.vue";
 
 export default defineComponent({
   name: "BoardOnBoard",
@@ -78,19 +79,19 @@ export default defineComponent({
       );
     },
   },
-  components: { ChipInformation },
+  components: { chipInformation },
 });
 </script>
 
 <template>
   <v-container>
-    <v-card class="mx-auto" variant="outlined">
+    <v-card class="mx-auto" elevation="5">
       <v-card-title>
         <v-icon>mdi-format-columns</v-icon>Board-on-board
       </v-card-title>
-      <v-card-header-text
+      <v-card-header
         >Provide information about width of the bottom and the top
-        board</v-card-header-text
+        board</v-card-header
       >
       <v-card-text>
         <v-row justify="center">

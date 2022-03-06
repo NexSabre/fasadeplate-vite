@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import ChipInformation from "./core/chipInformation.vue";
+import chipInformation from "../core/chipInformation.vue";
 
 export default defineComponent({
   name: "DiagonalVue",
@@ -25,16 +25,16 @@ export default defineComponent({
       return floatCalc;
     },
   },
-  components: { ChipInformation },
+  components: { chipInformation },
 });
 </script>
 
 <template>
   <div>
     <v-container>
-      <v-card class="mx-auto" variant="outlined">
+      <v-card class="mx-auto" elevation="5">
         <v-card-header>
-          <v-icon>mdi-arrow-top-left-bottom-right</v-icon>Diagonal Card
+          <v-icon>mdi-arrow-top-left-bottom-right</v-icon>Diagonal Calculator
         </v-card-header>
         <v-card-text>
           Short
