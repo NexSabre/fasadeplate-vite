@@ -16,7 +16,7 @@ export const navigationItems: NavigationItems[] = [
   {
     iconName: "mdi-home-minus-outline",
     title: "Home",
-    uri: "",
+    uri: "/",
   },
 ];
 
@@ -56,14 +56,14 @@ const cardRoutes: CardRoutes[] = [
     title: "Board-on-board",
     description:
       "Calculate positions if you want to lay a plank facade where one row overlaps the other.",
-    uri: "boardonboard",
+    uri: "/boardonboard",
     pictureName: "board_on_board.png",
   },
   {
     iconName: "mdi-arrow-split-vertical",
     title: "Vertical desk calculator",
     description: "Calculate how many desk you need for wall.",
-    uri: "vertical",
+    uri: "/vertical",
     pictureName: "vertical_desk.png",
   },
   {
@@ -71,21 +71,21 @@ const cardRoutes: CardRoutes[] = [
     title: "Horizontal desk calculator",
     description:
       "Base on the heigth calculate how many baord you need to cover wall.",
-    uri: "horizontal",
+    uri: "/horizontal",
     pictureName: "horizontal.png",
   },
   {
     iconName: "mdi-pillar",
     title: "Linear meter calculator",
     description: "Calculate how many desk in currect meter you need.",
-    uri: "runningmeter",
+    uri: "/runningmeter",
     pictureName: "vertical_desk_2.png",
   },
   {
     iconName: "mdi-arrow-top-left-bottom-right",
     title: "Diagonal calculator",
     description: "Calculate diagonal base on the short and long edge.",
-    uri: "diagonal",
+    uri: "/diagonal",
     pictureName: "diagonal.png",
   },
 ];

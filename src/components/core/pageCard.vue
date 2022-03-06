@@ -12,7 +12,7 @@ export default defineComponent({
   },
   methods: {
     goTo() {
-      this.$router.push(`/${this.uri}`);
+      this.$router.push(this.uri ? this.uri : "/");
     },
     getImageSrc(): string {
       return `assets/${this.pictureName}`;
