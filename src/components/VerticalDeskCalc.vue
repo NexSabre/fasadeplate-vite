@@ -1,35 +1,49 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import ChipInformation from "./core/chipInformation.vue";
 
 export default defineComponent({
   name: "VerticalDeskCalc",
   data() {
     return {
-      deskSize: 0,
-      totalLength: 0,
+      deskSize: null,
+      totalLength: null,
     };
   },
   methods: {
     clear() {
-      this.deskSize = 0;
-      this.totalLength = 0;
+      this.deskSize = null;
+      this.totalLength = null;
     },
   },
   computed: {
     calculateFullSizeDesks(): number {
+      if (!this.totalLength || !this.deskSize) {
+        return 0;
+      }
       return Math.floor(this.totalLength / this.deskSize);
     },
     calculateMissingPart(): number {
+      if (!this.deskSize || !this.totalLength) {
+        return 0;
+      }
       const sizeOfXDesk = this.calculateFullSizeDesks * this.deskSize;
       return this.totalLength - sizeOfXDesk;
     },
     calculateCoverate(): number {
+      if (!this.deskSize) {
+        return 0;
+      }
       return this.calculateFullSizeDesks * this.deskSize;
     },
     calculateClippings(): boolean {
+      if (!this.totalLength || !this.deskSize) {
+        return false;
+      }
       return this.totalLength % this.deskSize > 0;
     },
   },
+  components: { ChipInformation },
 });
 </script>
 
@@ -41,18 +55,10 @@ export default defineComponent({
           <v-icon>mdi-arrow-split-vertical</v-icon>Desk Calculator
         </v-card-header>
         <v-card-text>
-          <v-text-field
-            v-model="deskSize"
-            label="Desk size (cm)"
-            type="number"
-          />
-        </v-card-text>
-        <v-card-text>
-          <v-text-field
-            v-model="totalLength"
-            label="total length (cm)"
-            type="number"
-          />
+          Desk size
+          <v-text-field v-model="deskSize" label="(cm)" type="number" />
+          Total length
+          <v-text-field v-model="totalLength" label="(cm)" type="number" />
         </v-card-text>
         <v-card-actions v-if="deskSize && totalLength">
           <div>
@@ -76,7 +82,7 @@ export default defineComponent({
           </div>
         </v-card-actions>
         <v-card-actions v-else>
-          <h4>Provide desk size and total length of the wall</h4>
+          <chip-information missing-elements="Desk Size & Total Length" />
         </v-card-actions>
       </v-card>
     </v-container>

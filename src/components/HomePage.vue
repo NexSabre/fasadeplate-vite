@@ -24,7 +24,7 @@ export default defineComponent({
           ><v-icon>mdi-home-minus-outline</v-icon> Diagnoal
         </v-card-header>
         <v-card-subtitle
-          >calculate diagonal base on the short and long edge.</v-card-subtitle
+          >Calculate diagonal base on the short and long edge.</v-card-subtitle
         >
       </v-card>
       <br />
@@ -39,6 +39,7 @@ export default defineComponent({
       </v-card>
       <br />
       <v-card class="mx-auto" variant="outlined" @click="goTo('boardonboard')">
+        <v-img src="assets/board_on_board.png" cover></v-img>
         <v-card-header
           ><v-icon>mdi-format-columns</v-icon> Board-on-board
           calculator</v-card-header
