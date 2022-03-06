@@ -7,19 +7,13 @@
       app
       image="assets/app_bar.png"
     >
-      <v-toolbar-title
-        @click="
-          {
-            {
-              this.$router.push('/');
-            }
-          }
-        "
-      >
+      <v-toolbar-title>
         <v-btn @click="drawer = !drawer" style="opacity: 60%" color="black" icon
           ><v-icon>mdi-menu</v-icon></v-btn
         >
-        fasadekalkulator.🇳🇴</v-toolbar-title
+        <span @click="this.$router.push('/')"
+          >fasadekalkulator.🇳🇴</span
+        ></v-toolbar-title
       >
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>
