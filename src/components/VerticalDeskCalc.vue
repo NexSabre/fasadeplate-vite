@@ -60,6 +60,8 @@ export default defineComponent({
           Total length
           <v-text-field v-model="totalLength" label="(cm)" type="number" />
         </v-card-text>
+        <v-divider></v-divider>
+
         <v-card-actions v-if="deskSize && totalLength">
           <div>
             <h4>To cover you need: {{}}</h4>

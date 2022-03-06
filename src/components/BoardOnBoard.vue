@@ -129,6 +129,7 @@ export default defineComponent({
           clearable
         />
       </v-card-text>
+      <v-divider></v-divider>
 
       <v-card-actions v-if="totalLength">
         <v-row>
@@ -144,10 +145,12 @@ export default defineComponent({
           </v-col>
         </v-row>
       </v-card-actions>
-      <v-card-actions v-else-if="totalLength == 0">
+      <v-card-actions v-else-if="!upperDesk || !bottomDesk">
+        <chip-information missing-elements="Desk size"
+      /></v-card-actions>
+      <v-card-actions v-else>
         <chip-information missing-elements="Total Length" />
       </v-card-actions>
-      <v-card-actions v-else> Provide correct data </v-card-actions>
     </v-card>
   </v-container>
 </template>

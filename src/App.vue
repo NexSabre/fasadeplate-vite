@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <v-app-bar absolute color="deep-purple" app image="assets/app_bar.png">
+    <v-app-bar
+      absolute
+      color="#212121"
+      style="color: white"
+      app
+      image="assets/app_bar.png"
+    >
       <v-toolbar-title
         @click="
           {
@@ -13,7 +19,7 @@
         <v-btn @click="drawer = !drawer" style="opacity: 60%" color="black" icon
           ><v-icon>mdi-menu</v-icon></v-btn
         >
-        fasadeplate</v-toolbar-title
+        fasadekalkulator.🇳🇴</v-toolbar-title
       >
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>

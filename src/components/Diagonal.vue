@@ -46,6 +46,7 @@ export default defineComponent({
           Long
           <v-text-field v-model="textFieldLong" label="(cm)" type="number" />
         </v-card-text>
+        <v-divider></v-divider>
         <v-card-actions v-if="calculate">
           <div>
             <h4>Diagonal:</h4>
