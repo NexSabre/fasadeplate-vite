@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import chipInformation from "../core/chipInformation.vue";
 
 export default defineComponent({
-  name: "VerticalDeskCalc",
+  name: "HorizontalDeskCalc",
   data() {
     return {
       deskSize: null,
@@ -52,12 +52,12 @@ export default defineComponent({
     <v-container>
       <v-card class="mx-auto" elevation="5">
         <v-card-header>
-          <v-icon>mdi-arrow-split-vertical</v-icon>Vertical desk Calculator
+          <v-icon>mdi-arrow-split-horizontal</v-icon>Horizontal desk calculator
         </v-card-header>
         <v-card-text>
           Desk size
           <v-text-field v-model="deskSize" label="(cm)" type="number" />
-          Total length
+          Total height
           <v-text-field v-model="totalLength" label="(cm)" type="number" />
         </v-card-text>
         <v-divider></v-divider>
@@ -84,7 +84,7 @@ export default defineComponent({
           </div>
         </v-card-actions>
         <v-card-actions v-else>
-          <chip-information missing-elements="Desk Size & Total Length" />
+          <chip-information missing-elements="Desk Size & Heigth" />
         </v-card-actions>
       </v-card>
     </v-container>

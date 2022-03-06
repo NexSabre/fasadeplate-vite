@@ -1,5 +1,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import pageCard from "./core/pageCard.vue";
+
+import cardPages from "@/router/routes";
 
 export default defineComponent({
   name: "HomePage",
@@ -10,8 +13,11 @@ export default defineComponent({
   },
   data() {
     return {
-      test: 0,
+      test: cardPages,
     };
+  },
+  components: {
+    pageCard,
   },
 });
 </script>
@@ -19,52 +25,14 @@ export default defineComponent({
 <template>
   <div>
     <v-container>
-      <v-card class="mx-auto" elevation="5" @click="goTo('diagonal')">
-        <v-img src="assets/diagonal.png" cover></v-img>
-        <v-card-header
-          ><v-icon>mdi-arrow-top-left-bottom-right</v-icon> Diagonal calculator
-        </v-card-header>
-        <v-card-subtitle
-          >Calculate diagonal base on the short and long edge.</v-card-subtitle
-        >
-      </v-card>
-      <br />
-
-      <v-card class="mx-auto" elevation="5" @click="goTo('vertical')">
-        <v-img src="assets/vertical_desk.png" cover></v-img>
-        <v-card-header
-          ><v-icon>mdi-arrow-split-vertical</v-icon> Vertical
-          calculator</v-card-header
-        >
-        <v-card-subtitle>
-          Calculate how many desk you need for wall.
-        </v-card-subtitle>
-      </v-card>
-      <br />
-
-      <v-card class="mx-auto" elevation="5" @click="goTo('boardonboard')">
-        <v-img src="assets/board_on_board.png" cover></v-img>
-        <v-card-header
-          ><v-icon>mdi-format-columns</v-icon> Board-on-board
-          calculator</v-card-header
-        >
-        <v-card-subtitle>
-          Calculate positions if you want to lay a plank facade where one row
-          overlaps the other.
-        </v-card-subtitle>
-      </v-card>
-      <br />
-
-      <v-card class="mx-auto" elevation="5" @click="goTo('runnigmeter')">
-        <v-img src="assets/vertical_desk_2.png" cover></v-img>
-        <v-card-header
-          ><v-icon>mdi-pillar</v-icon> Linear meter calculator</v-card-header
-        >
-        <v-card-subtitle>
-          Calculate how many desk in currect meter you need.
-        </v-card-subtitle>
-      </v-card>
-      <br />
+      <page-card
+        v-for="page in test"
+        :icon-name="page.iconName"
+        :title="page.title"
+        :description="page.description"
+        :uri="page.uri"
+        :picture-name="page.pictureName"
+      />
     </v-container>
   </div>
 </template>

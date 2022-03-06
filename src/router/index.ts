@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DiagonalVue from "@/components/pages/Diagonal.vue";
 import VerticalDeskCalcVue from "@/components/pages/VerticalDeskCalc.vue";
+import HorizontalDeskCalVue from "@/components/pages/HorizontalDeskCalc.vue";
 import BoardOnBoardVue from "@/components/pages/BoardOnBoard.vue";
 import RunningMeterVue from "@/components/pages/RunningMeterCalc.vue";
 
@@ -28,9 +29,14 @@ const routes = [
     component: BoardOnBoardVue,
   },
   {
-    path: "/runnigmeter",
+    path: "/runningmeter",
     name: "RunningMeter",
     component: RunningMeterVue,
+  },
+  {
+    path: "/horizontal",
+    name: "Horizontal",
+    component: HorizontalDeskCalVue,
   },
 ];
 

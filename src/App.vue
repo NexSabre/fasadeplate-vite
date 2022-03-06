@@ -80,6 +80,18 @@
         >
           <v-icon> mdi-pillar </v-icon> Running meter calc
         </v-list-item>
+
+        <v-list-item
+          @click="
+            {
+              {
+                this.$router.push('/horizontal');
+              }
+            }
+          "
+        >
+          <v-icon>mdi-arrow-split-horizontal</v-icon> Horizontal desk calc
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main>

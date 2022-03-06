@@ -42,10 +42,10 @@ export default defineComponent({
         Wide desk (cm)
         <v-text-field v-model="deskWide" label="(cm)" type="number" clearable />
 
-        Field to cover with desks (m^2)
+        Field to cover with desks (m²)
         <v-text-field
           v-model="deskField"
-          label="(m^2)"
+          label="(m²)"
           type="number"
           clearable
         />
