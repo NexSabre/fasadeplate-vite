@@ -1,18 +1,56 @@
-const routes = [
+type CardRoutes = {
+  iconName: string;
+  title: string;
+  description: string;
+  uri: string;
+  pictureName: string;
+};
+
+type NavigationItems = {
+  iconName: string;
+  title: string;
+  uri: string;
+};
+
+export const navigationItems: NavigationItems[] = [
   {
-    iconName: "mdi-arrow-top-left-bottom-right",
-    title: "Diagonal calculator",
-    description: "Calculate diagonal base on the short and long edge.",
-    uri: "diagonal",
-    pictureName: "diagonal.png",
+    iconName: "mdi-home-minus-outline",
+    title: "Home",
+    uri: "",
   },
+];
+
+export const navigationItemCalculators: NavigationItems[] = [
+  {
+    iconName: "mdi-format-columns",
+    title: "Board on board calc",
+    uri: "/boardonboard",
+  },
+
   {
     iconName: "mdi-arrow-split-vertical",
-    title: "Vertical desk calculator",
-    description: "Calculate how many desk you need for wall.",
-    uri: "vertical",
-    pictureName: "vertical_desk.png",
+    title: "Vertical calc",
+    uri: "/vertical",
   },
+  {
+    iconName: "mdi-arrow-split-horizontal",
+    title: "Horizontal calc",
+    uri: "/horizontal",
+  },
+
+  {
+    iconName: "mdi-pillar",
+    title: "Linear meter desk calc",
+    uri: "/runningmeter",
+  },
+  {
+    iconName: "mdi-arrow-top-left-bottom-right",
+    title: "Diagonal calc",
+    uri: "/diagonal",
+  },
+];
+
+const cardRoutes: CardRoutes[] = [
   {
     iconName: "mdi-format-columns",
     title: "Board-on-board",
@@ -22,11 +60,11 @@ const routes = [
     pictureName: "board_on_board.png",
   },
   {
-    iconName: "mdi-pillar",
-    title: "Linear meter calculator",
-    description: "Calculate how many desk in currect meter you need.",
-    uri: "runningmeter",
-    pictureName: "vertical_desk_2.png",
+    iconName: "mdi-arrow-split-vertical",
+    title: "Vertical desk calculator",
+    description: "Calculate how many desk you need for wall.",
+    uri: "vertical",
+    pictureName: "vertical_desk.png",
   },
   {
     iconName: "mdi-arrow-split-horizontal",
@@ -36,6 +74,20 @@ const routes = [
     uri: "horizontal",
     pictureName: "horizontal.png",
   },
+  {
+    iconName: "mdi-pillar",
+    title: "Linear meter calculator",
+    description: "Calculate how many desk in currect meter you need.",
+    uri: "runningmeter",
+    pictureName: "vertical_desk_2.png",
+  },
+  {
+    iconName: "mdi-arrow-top-left-bottom-right",
+    title: "Diagonal calculator",
+    description: "Calculate diagonal base on the short and long edge.",
+    uri: "diagonal",
+    pictureName: "diagonal.png",
+  },
 ];
 
-export default routes;
+export default cardRoutes;

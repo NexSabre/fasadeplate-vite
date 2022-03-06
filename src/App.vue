@@ -26,71 +26,17 @@
       <v-list shaped>
         <v-list-subheader>HOME</v-list-subheader>
         <v-list-item
-          @click="
-            {
-              {
-                this.$router.push('/');
-              }
-            }
-          "
-          ><v-icon>mdi-home-minus-outline</v-icon>Home</v-list-item
+          v-for="item in navigationItems"
+          @click="this.$router.push(item.uri)"
         >
+          <v-icon>{{ item.iconName }}</v-icon> {{ item.title }}
+        </v-list-item>
         <v-list-subheader>CALCULATORS</v-list-subheader>
         <v-list-item
-          @click="
-            {
-              {
-                this.$router.push('/diagonal');
-              }
-            }
-          "
-          ><v-icon>mdi-arrow-top-left-bottom-right</v-icon>Diagonal
-          calc</v-list-item
+          v-for="item in navigationCalcs"
+          @click="this.$router.push(item.uri)"
         >
-        <v-list-item
-          @click="
-            {
-              {
-                this.$router.push('/vertical');
-              }
-            }
-          "
-          ><v-icon>mdi-arrow-split-vertical</v-icon>Vertical calc</v-list-item
-        >
-        <v-list-item
-          @click="
-            {
-              {
-                this.$router.push('/boardonboard');
-              }
-            }
-          "
-        >
-          <v-icon>mdi-format-columns</v-icon> Board-on-board calc
-        </v-list-item>
-
-        <v-list-item
-          @click="
-            {
-              {
-                this.$router.push('/runnigmeter');
-              }
-            }
-          "
-        >
-          <v-icon> mdi-pillar </v-icon> Running meter calc
-        </v-list-item>
-
-        <v-list-item
-          @click="
-            {
-              {
-                this.$router.push('/horizontal');
-              }
-            }
-          "
-        >
-          <v-icon>mdi-arrow-split-horizontal</v-icon> Horizontal desk calc
+          <v-icon>{{ item.iconName }}</v-icon> {{ item.title }}
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -103,6 +49,7 @@
 
 <script>
 import DiagonalVue from "./components/pages/Diagonal.vue";
+import { navigationItemCalculators, navigationItems } from "@/router/routes";
 
 export default {
   name: "App",
@@ -114,6 +61,8 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
+    navigationItems: navigationItems,
+    navigationCalcs: navigationItemCalculators,
   }),
 };
 </script>
