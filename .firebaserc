@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "fasadekalkulator"
-  }
+    "default": "fasadekalkulator",
+    "prod": "fasadekalkulator"
+  },
+  "targets": {}
 }
