@@ -50,7 +50,7 @@ export default defineComponent({
 <template>
   <div>
     <v-container fluid>
-      <v-card class="mx-auto" variant="outlined">
+      <v-card class="mx-auto" elevation="5">
         <v-card-header>
           <v-icon>mdi-arrow-split-vertical</v-icon>Desk Calculator
         </v-card-header>

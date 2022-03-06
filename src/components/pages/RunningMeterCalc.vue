@@ -32,7 +32,7 @@ export default defineComponent({
 
 <template>
   <v-container>
-    <v-card class="mx-auto" elevation="4">
+    <v-card class="mx-auto" elevation="5">
       <v-card-title>
         <v-icon>mdi-pillar</v-icon>Linear meter calculator
       </v-card-title>
