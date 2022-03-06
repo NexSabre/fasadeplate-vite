@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import pageCard from "./core/pageCard.vue";
+import PageCard from "./core/pageCard.vue";
 
 import cardPages from "@/router/routes";
 
@@ -13,11 +13,11 @@ export default defineComponent({
   },
   data() {
     return {
-      test: cardPages,
+      dataCardPage: cardPages,
     };
   },
   components: {
-    pageCard,
+    PageCard,
   },
 });
 </script>
@@ -26,7 +26,7 @@ export default defineComponent({
   <div>
     <v-container>
       <page-card
-        v-for="page in test"
+        v-for="page in dataCardPage"
         :icon-name="page.iconName"
         :title="page.title"
         :description="page.description"
