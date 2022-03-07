@@ -12,7 +12,7 @@
           ><v-icon>mdi-menu</v-icon></v-btn
         >
         <span @click="this.$router.push('/')"
-          >fasadekalkulator.🇳🇴</span
+          >Facade Calculator 📱</span
         ></v-toolbar-title
       >
     </v-app-bar>

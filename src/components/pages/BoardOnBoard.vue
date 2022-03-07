@@ -132,6 +132,18 @@ export default defineComponent({
           clearable
         />
       </v-card-text>
+      <v-row justify="center">
+        <v-chip
+          color="orange"
+          v-if="bestOverlay <= 0 && bestCalculateSummary.length"
+          >⚠️ Warning, You should use a wider desk on the top
+        </v-chip>
+        <v-chip color="green" v-else-if="bestOverlay > 0">
+          Calculation looks 👌
+        </v-chip>
+      </v-row>
+      <br />
+
       <v-divider></v-divider>
 
       <v-card-actions v-if="totalLength">
