@@ -14,6 +14,7 @@ export default defineComponent({
       bestOverlay: 0,
       minOverlay: 1.5,
       maxOverlay: 2.5,
+      checkBoxMaxOverlay: false,
     };
   },
   methods: {
@@ -78,6 +79,24 @@ export default defineComponent({
         ) / 10
       );
     },
+    getMaxOverlay(): number {
+      const _bottomDesk = this.bottomDesk ? this.bottomDesk : 10;
+      const _upperDesk = this.upperDesk ? this.upperDesk : 10;
+      return Math.min(_bottomDesk, _upperDesk) - 0.5;
+    },
+    color(): string {
+      if (!this.bottomDesk || !this.upperDesk || !this.totalLength) {
+        return "gray";
+      }
+      return this.bestOverlay > 0 ? "green" : "red";
+    },
+  },
+  watch: {
+    checkBoxMaxOverlay(newValue: boolean) {
+      if (newValue == false) {
+        this.maxOverlay = 2.5;
+      }
+    },
   },
   components: { chipInformation },
 });
@@ -131,6 +150,21 @@ export default defineComponent({
           type="number"
           clearable
         />
+        <v-checkbox
+          v-model="checkBoxMaxOverlay"
+          label="Set manuall overlay"
+        ></v-checkbox>
+        <v-row justify="center" v-if="checkBoxMaxOverlay">
+          <v-slider
+            v-model="maxOverlay"
+            hint="Manuall overlay"
+            :min="0"
+            :max="getMaxOverlay"
+            :step="0.1"
+            :color="color"
+            thumb-label="always"
+          ></v-slider>
+        </v-row>
       </v-card-text>
       <v-row justify="center">
         <v-chip
