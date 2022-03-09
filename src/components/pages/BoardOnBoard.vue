@@ -3,6 +3,13 @@ import { defineComponent } from "vue";
 
 import chipInformation from "../core/chipInformation.vue";
 
+interface PathQuery {
+  bottom?: null;
+  upper?: null;
+  length?: null;
+  overlay?: null;
+}
+
 export default defineComponent({
   name: "BoardOnBoard",
   data() {
@@ -10,14 +17,57 @@ export default defineComponent({
       bottomDesk: null,
       upperDesk: null,
       totalLength: null,
-      overlay: 2.5,
       bestOverlay: 0,
       minOverlay: 1.5,
       maxOverlay: 2.5,
       checkBoxMaxOverlay: false,
+      shareThisWindow: false,
     };
   },
+  mounted() {
+    console.log("s");
+    const query: PathQuery = this.$route.query;
+    if (query.bottom) {
+      this.bottomDesk = <any>Number(query.bottom);
+    }
+    if (query.upper) {
+      this.upperDesk = <any>Number(query.upper);
+    }
+    if (query.length) {
+      this.totalLength = <any>Number(query.length);
+    }
+    if (query.overlay) {
+      this.checkBoxMaxOverlay = true;
+      this.maxOverlay = <any>Number(query.overlay);
+    }
+  },
   methods: {
+    async updateURI(): Promise<void> {
+      const _bottom = this.bottomDesk
+        ? `bottom=${(this.bottomDesk as number).toString().replace(",", ".")}`
+        : "";
+      const _upper = this.upperDesk
+        ? `upper=${(this.upperDesk as number).toString().replace(",", ".")}`
+        : "";
+      const _length = this.totalLength
+        ? `length=${(this.totalLength as number).toString().replace(",", ".")}`
+        : "";
+      const _overlay = this.maxOverlay
+        ? `overlay=${(this.maxOverlay as number).toString().replace(",", ".")}`
+        : "";
+
+      const params = [_bottom, _upper, _length, _overlay];
+      params.filter((e) => {
+        e !== "";
+      });
+      const fullPath = `http://localhost:3000${this.$route.path}?${params.join(
+        "&"
+      )}`;
+
+      await navigator.clipboard.writeText(fullPath);
+      this.shareThisWindow = true;
+      this.shareThisWindow = false;
+    },
     clear(): void {
       this.bottomDesk = null;
       this.upperDesk = null;
@@ -184,7 +234,17 @@ export default defineComponent({
         <v-row>
           <v-col>
             Overlay: {{ showOverlayReport }}<br />
-            Step: {{ calcStep.toFixed(1) }} (cm)
+            Step: {{ calcStep.toFixed(1) }} (cm) <br />
+            <br />
+            <v-row justify="center">
+              <v-btn
+                justify="center"
+                @click="updateURI"
+                variant="text"
+                color="teal-accent-4"
+                >Copy link<v-icon>mdi-content-copy</v-icon>
+              </v-btn></v-row
+            >
           </v-col>
           <v-col>
             Bottom desk positions ({{ bestCalculateSummary.length }}) <br />
