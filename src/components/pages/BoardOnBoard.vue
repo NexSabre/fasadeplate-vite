@@ -22,6 +22,7 @@ export default defineComponent({
       maxOverlay: 2.5,
       checkBoxMaxOverlay: false,
       shareThisWindow: false,
+      quickOptions: [12.3, 14.8, 17.3],
     };
   },
   mounted() {
@@ -170,9 +171,14 @@ export default defineComponent({
         <div
           class="d-flex justify-space-around align-center flex-md-row fill-height"
         >
-          <v-btn @click="setBtn(12.3)" rounded="lg" color="orange">12,3</v-btn>
-          <v-btn @click="setBtn(14.8)" rounded="lg" color="orange">14,8</v-btn>
-          <v-btn @click="setBtn(17.3)" rounded="lg" color="orange">17,3</v-btn>
+          <v-btn
+            v-for="size in quickOptions"
+            @click="setBtn(size)"
+            :key="size"
+            rounded="lg"
+            color="orange"
+            >{{ size }}</v-btn
+          >
         </div>
       </v-card-text>
       <v-card-text>
@@ -235,16 +241,6 @@ export default defineComponent({
           <v-col>
             Overlay: {{ showOverlayReport }}<br />
             Step: {{ calcStep.toFixed(1) }} (cm) <br />
-            <br />
-            <v-row justify="center">
-              <v-btn
-                justify="center"
-                @click="updateURI"
-                variant="text"
-                color="teal-accent-4"
-                >Copy link<v-icon>mdi-content-copy</v-icon>
-              </v-btn></v-row
-            >
           </v-col>
           <v-col>
             Bottom desk positions ({{ bestCalculateSummary.length }}) <br />
@@ -261,5 +257,28 @@ export default defineComponent({
         <chip-information missing-elements="Total Length" />
       </v-card-actions>
     </v-card>
+
+    <v-btn class="float" @click="updateURI"
+      ><v-icon>mdi-content-copy</v-icon></v-btn
+    >
   </v-container>
 </template>
+
+<style scoped>
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  left: 20px;
+  background-color: #0c9;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+  margin-top: 22px;
+}
+</style>
