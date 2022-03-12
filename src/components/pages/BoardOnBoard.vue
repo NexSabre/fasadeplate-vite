@@ -21,12 +21,10 @@ export default defineComponent({
       minOverlay: 1.5,
       maxOverlay: 2.5,
       checkBoxMaxOverlay: false,
-      shareThisWindow: false,
       quickOptions: [12.3, 14.8, 17.3],
     };
   },
   mounted() {
-    console.log("s");
     const query: PathQuery = this.$route.query;
     if (query.bottom) {
       this.bottomDesk = <any>Number(query.bottom);
@@ -44,30 +42,25 @@ export default defineComponent({
   },
   methods: {
     async updateURI(): Promise<void> {
-      const _bottom = this.bottomDesk
-        ? `bottom=${(this.bottomDesk as number).toString().replace(",", ".")}`
-        : "";
-      const _upper = this.upperDesk
-        ? `upper=${(this.upperDesk as number).toString().replace(",", ".")}`
-        : "";
-      const _length = this.totalLength
-        ? `length=${(this.totalLength as number).toString().replace(",", ".")}`
-        : "";
-      const _overlay = this.maxOverlay
-        ? `overlay=${(this.maxOverlay as number).toString().replace(",", ".")}`
-        : "";
-
-      const params = [_bottom, _upper, _length, _overlay];
-      params.filter((e) => {
-        e !== "";
-      });
-      const fullPath = `http://localhost:3000${this.$route.path}?${params.join(
-        "&"
-      )}`;
+      const filtred_params = [
+        ["bottom", this.bottomDesk],
+        ["upper", this.upperDesk],
+        ["length", this.totalLength],
+        ["overlay", this.maxOverlay],
+      ]
+        .map((arr, _) => {
+          if (arr[1]) {
+            return arr.join("=");
+          }
+        })
+        .filter((e) => e);
+      const fullPath = `https://facadecalculator.com${
+        this.$route.path
+      }?${filtred_params.join("&")}`;
 
       await navigator.clipboard.writeText(fullPath);
-      this.shareThisWindow = true;
-      this.shareThisWindow = false;
+      // TODO NexSabre: When Vuetify's snackbar will be back to the 3.0b
+      // implement a notification
     },
     clear(): void {
       this.bottomDesk = null;
@@ -276,9 +269,5 @@ export default defineComponent({
   border-radius: 50px;
   text-align: center;
   box-shadow: 2px 2px 3px #999;
-}
-
-.my-float {
-  margin-top: 22px;
 }
 </style>
