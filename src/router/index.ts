@@ -5,6 +5,8 @@ import HorizontalDeskCalVue from "@/components/pages/HorizontalDeskCalc.vue";
 import BoardOnBoardVue from "@/components/pages/BoardOnBoard.vue";
 import RunningMeterVue from "@/components/pages/RunningMeterCalc.vue";
 
+import HowToBoardOnBoard from "@/components/pages/HowToBoardOnBoard.vue";
+
 import HomePageVue from "@/components/HomePage.vue";
 
 const routes = [
@@ -37,6 +39,11 @@ const routes = [
     path: "/horizontal",
     name: "Horizontal",
     component: HorizontalDeskCalVue,
+  },
+  {
+    path: "/howtoboardonboard",
+    name: "HowToBoardOnBoard",
+    component: HowToBoardOnBoard,
   },
 ];
 

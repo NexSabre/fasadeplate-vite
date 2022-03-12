@@ -67,6 +67,9 @@ export default defineComponent({
       this.upperDesk = null;
       this.totalLength = null;
     },
+    goTo(pageName: string): any {
+      this.$router.push(`/${pageName}`);
+    },
     setBtn(value: number) {
       // <any> to skip some error for strict null check
       this.bottomDesk = <any>value;
@@ -152,6 +155,10 @@ export default defineComponent({
       <v-card-title>
         <v-icon>mdi-format-columns</v-icon>Board-on-board
       </v-card-title>
+      <v-card-subtitle @click="goTo('HowToBoardOnBoard')"
+        ><v-icon>mdi-help-box</v-icon>Need help how to measure? Click
+        here</v-card-subtitle
+      >
       <v-card-header
         >Provide information about width of the bottom and the top
         board</v-card-header
