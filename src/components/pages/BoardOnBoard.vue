@@ -137,6 +137,9 @@ export default defineComponent({
       }
       return this.bestOverlay > 0 ? "green" : "red";
     },
+    allFieldsFilled(): boolean | null {
+      return this.bottomDesk && this.upperDesk && this.totalLength;
+    },
   },
   watch: {
     checkBoxMaxOverlay(newValue: boolean) {
@@ -228,7 +231,7 @@ export default defineComponent({
           v-if="bestOverlay <= 0 && bestCalculateSummary.length"
           >⚠️ Warning, You should use a wider desk on the top
         </v-chip>
-        <v-chip color="green" v-else-if="bestOverlay > 0">
+        <v-chip color="green" v-else-if="bestOverlay > 0 && allFieldsFilled">
           Calculation looks 👌
         </v-chip>
       </v-row>
@@ -258,7 +261,7 @@ export default defineComponent({
       </v-card-actions>
     </v-card>
 
-    <v-btn class="float" @click="updateURI"
+    <v-btn class="float" @click="updateURI" v-if="allFieldsFilled"
       ><v-icon>mdi-content-copy</v-icon></v-btn
     >
   </v-container>
