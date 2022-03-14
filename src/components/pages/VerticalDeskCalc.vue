@@ -1,38 +1,16 @@
 <script lang="ts" setup>
+import SingleBoardCalc from "@/core/SingleBoardCalc";
 import { computed, ComputedRef, ref } from "vue";
 import chipInformationVue from "../core/chipInformation.vue";
 
 const deskSize = ref();
 const totalLength = ref();
 
-const calculateFullSizeDesks: ComputedRef<number> = computed((): number => {
-  if (!totalLength.value || !deskSize.value) {
-    return 0;
+const singleBoardCalc: ComputedRef<SingleBoardCalc> = computed(
+  (): SingleBoardCalc => {
+    return new SingleBoardCalc(deskSize.value, totalLength.value);
   }
-  return Math.floor(totalLength.value / deskSize.value);
-});
-
-const calculateMissingPart: ComputedRef<number> = computed((): number => {
-  if (!deskSize.value || !totalLength.value) {
-    return 0;
-  }
-  const sizeOfXDesk = calculateFullSizeDesks.value * deskSize.value;
-  return totalLength.value - sizeOfXDesk;
-});
-
-const calculateCoverate: ComputedRef<number> = computed((): number => {
-  if (!deskSize.value) {
-    return 0;
-  }
-  return calculateFullSizeDesks.value * deskSize.value;
-});
-
-const calculateClippings: ComputedRef<boolean> = computed((): boolean => {
-  if (!totalLength.value || !deskSize.value) {
-    return false;
-  }
-  return totalLength.value % deskSize.value > 0;
-});
+);
 
 const chipInformation = chipInformationVue;
 </script>
@@ -56,17 +34,19 @@ const chipInformation = chipInformationVue;
           <div>
             <h4>To cover you need:</h4>
             <h2>
-              Full desk {{ calculateFullSizeDesks }}
-              <small v-show="calculateClippings"> + 1 for clippings.</small>
+              Full desk {{ singleBoardCalc.countFullSizeBoards }}
+              <small v-show="singleBoardCalc.clippings">
+                + 1 for clippings.</small
+              >
             </h2>
             <h4>
               <ul>
                 <li>
-                  You cover: {{ calculateCoverate.toFixed(2)
+                  You cover: {{ singleBoardCalc.coverate.toFixed(2)
                   }}<small> (cm)</small>
                 </li>
                 <li>
-                  Missing part {{ calculateMissingPart.toFixed(2)
+                  Missing part {{ singleBoardCalc.missingPart.toFixed(2)
                   }}<small> (cm)</small>
                 </li>
               </ul>
