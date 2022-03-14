@@ -1,19 +1,13 @@
 <script lang="ts" setup>
 import { ComputedRef, computed, ref } from "vue";
 import chipInformationVue from "../core/chipInformation.vue";
+import diagonalCalculation, { numberOrNull } from "@/core/DiagonalCalc";
 
 const textFieldShort = ref();
 const textFieldLong = ref();
 
-const calculate: ComputedRef<number> = computed((): number => {
-  console.log(textFieldLong.value);
-  if (!textFieldLong.value || !textFieldShort.value) {
-    return 0;
-  }
-  const floatCalc = Math.sqrt(
-    Math.pow(textFieldShort.value, 2) + Math.pow(textFieldLong.value, 2)
-  );
-  return floatCalc;
+const calculate: ComputedRef<numberOrNull> = computed((): numberOrNull => {
+  return diagonalCalculation(textFieldShort.value, textFieldLong.value);
 });
 
 const chipInformation = chipInformationVue;
