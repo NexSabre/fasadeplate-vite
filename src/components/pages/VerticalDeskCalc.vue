@@ -1,50 +1,40 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import chipInformation from "../core/chipInformation.vue";
+<script lang="ts" setup>
+import { computed, ComputedRef, ref } from "vue";
+import chipInformationVue from "../core/chipInformation.vue";
 
-export default defineComponent({
-  name: "VerticalDeskCalc",
-  data() {
-    return {
-      deskSize: null,
-      totalLength: null,
-    };
-  },
-  methods: {
-    clear() {
-      this.deskSize = null;
-      this.totalLength = null;
-    },
-  },
-  computed: {
-    calculateFullSizeDesks(): number {
-      if (!this.totalLength || !this.deskSize) {
-        return 0;
-      }
-      return Math.floor(this.totalLength / this.deskSize);
-    },
-    calculateMissingPart(): number {
-      if (!this.deskSize || !this.totalLength) {
-        return 0;
-      }
-      const sizeOfXDesk = this.calculateFullSizeDesks * this.deskSize;
-      return this.totalLength - sizeOfXDesk;
-    },
-    calculateCoverate(): number {
-      if (!this.deskSize) {
-        return 0;
-      }
-      return this.calculateFullSizeDesks * this.deskSize;
-    },
-    calculateClippings(): boolean {
-      if (!this.totalLength || !this.deskSize) {
-        return false;
-      }
-      return this.totalLength % this.deskSize > 0;
-    },
-  },
-  components: { chipInformation },
+const deskSize = ref();
+const totalLength = ref();
+
+const calculateFullSizeDesks: ComputedRef<number> = computed((): number => {
+  if (!totalLength.value || !deskSize.value) {
+    return 0;
+  }
+  return Math.floor(totalLength.value / deskSize.value);
 });
+
+const calculateMissingPart: ComputedRef<number> = computed((): number => {
+  if (!deskSize.value || !totalLength.value) {
+    return 0;
+  }
+  const sizeOfXDesk = calculateFullSizeDesks.value * deskSize.value;
+  return totalLength.value - sizeOfXDesk;
+});
+
+const calculateCoverate: ComputedRef<number> = computed((): number => {
+  if (!deskSize.value) {
+    return 0;
+  }
+  return calculateFullSizeDesks.value * deskSize.value;
+});
+
+const calculateClippings: ComputedRef<boolean> = computed((): boolean => {
+  if (!totalLength.value || !deskSize.value) {
+    return false;
+  }
+  return totalLength.value % deskSize.value > 0;
+});
+
+const chipInformation = chipInformationVue;
 </script>
 
 <template>
