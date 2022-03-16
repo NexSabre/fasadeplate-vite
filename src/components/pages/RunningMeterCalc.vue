@@ -1,33 +1,23 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import chipInformation from "../core/chipInformation.vue";
+<script lang="ts" setup>
+import RunningMeterCalc from "@/core/RunningMeterCalc";
+import { ComputedRef, computed, ref } from "vue";
+import chipInformationVue from "../core/chipInformation.vue";
 
-export default defineComponent({
-  name: "RunningMeterCalc",
-  data() {
-    return {
-      deskWide: null,
-      deskField: null,
-      percentageOfExcess: 0,
-    };
-  },
-  computed: {
-    calculateDeskSquare(): number {
-      if (!this.deskField || !this.deskWide) {
-        return 0;
-      }
-      return this.deskField / (this.deskWide * 0.1);
-    },
-    calculateExcess(): number {
-      if (!this.deskField || !this.deskWide) {
-        return 0;
-      }
-      const currectMeter = this.deskField / (this.deskWide * 0.1);
-      return (currectMeter / 100) * this.percentageOfExcess;
-    },
-  },
-  components: { chipInformation },
-});
+const deskWide = ref();
+const deskField = ref();
+const percentageOfExcess = ref();
+
+const runningMeterCalc: ComputedRef<RunningMeterCalc> = computed(
+  (): RunningMeterCalc => {
+    return new RunningMeterCalc(
+      deskWide.value,
+      deskField.value,
+      percentageOfExcess.value
+    );
+  }
+);
+
+const chipInformation = chipInformationVue;
 </script>
 
 <template>
@@ -50,7 +40,7 @@ export default defineComponent({
           clearable
         />
 
-        Percentage of excess: {{ percentageOfExcess }}%
+        Percentage of excess: {{ runningMeterCalc.percentageOfExcess }}%
         <v-slider
           v-model="percentageOfExcess"
           hint="Percentage of excess"
@@ -64,15 +54,20 @@ export default defineComponent({
       <v-card-actions v-if="deskWide && deskField">
         <v-row>
           <v-col>
-            Linear meters: {{ calculateDeskSquare.toFixed(2) }}
+            Linear meters:
+            {{ runningMeterCalc.deskSquare() ? runningMeterCalc.deskSquare()!.toFixed(2) : ""}}
             <span v-if="percentageOfExcess"
-              >+ {{ calculateExcess.toFixed(2) }}</span
+              >+
+              {{ runningMeterCalc.excess() ? runningMeterCalc.excess()!.toFixed(2) : "" }}</span
             >
             <p v-if="percentageOfExcess">
-              Linear meters with {{ percentageOfExcess }}%:
-              {{ (calculateDeskSquare + calculateExcess).toFixed(2) }}
-              <!-- Overlay: {{ showOverlayReport }}<br />
-            Step: {{ calcStep.toFixed(1) }} (cm) -->
+              Linear meters with
+              {{ runningMeterCalc.percentageOfExcess }}%:
+              {{
+                (
+                  runningMeterCalc.deskSquare()! + runningMeterCalc.excess()!
+                ).toFixed(2)
+              }}
             </p></v-col
           >
         </v-row>
