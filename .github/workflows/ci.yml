@@ -20,7 +20,7 @@ jobs:
     needs: [verify-js]
     environment:
       name: production
-      url: https://fasadekalkulator.web.app
+      url: https://facadecalculator.com
     steps:
       - uses: actions/checkout@v2
       - run: npm install -g yarn vue-tsc && yarn && yarn build
