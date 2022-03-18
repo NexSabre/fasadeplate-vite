@@ -36,3 +36,9 @@ export default defineComponent({
     </v-container>
   </div>
 </template>
+
+<style>
+.v-container {
+  max-width: 1200px;
+}
+</style>
