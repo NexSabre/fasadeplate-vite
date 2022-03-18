@@ -5,7 +5,7 @@
       color="#500000"
       style="color: white"
       app
-      image="assets/app_bar.png"
+      image="assets/app_bar.webp"
     >
       <v-toolbar-title>
         <v-btn @click="drawer = !drawer" style="opacity: 60%" color="black" icon
