@@ -14,7 +14,7 @@
     "vue": "^3.2.25",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.13",
-    "vuetify": "^3.0.0-alpha.0",
+    "vuetify": "^3.0.0-alpha.13",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
