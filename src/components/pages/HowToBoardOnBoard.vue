@@ -16,7 +16,7 @@ export default defineComponent({
       <v-card-title
         >How to measure for Board-on-Board calculations?</v-card-title
       >
-      <v-img src="assets/how_to_board_on_board.png" width="400px" />
+      <v-img src="assets/how_to_board_on_board.webp" width="400px" />
       <v-card-text>
         1. Nail the first and the last boards into place<br />
         2. Measure the distance from the first plank (including it) to the edge
