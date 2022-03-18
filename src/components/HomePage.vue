@@ -24,7 +24,7 @@ export default defineComponent({
 
 <template>
   <div>
-    <v-container fluid>
+    <v-container>
       <page-card
         v-for="page in dataCardPage"
         :icon-name="page.iconName"
