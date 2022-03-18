@@ -24,7 +24,7 @@ export default defineComponent({
 
 <template>
   <div>
-    <v-container>
+    <v-container fluid>
       <page-card
         v-for="page in dataCardPage"
         :icon-name="page.iconName"
@@ -36,3 +36,9 @@ export default defineComponent({
     </v-container>
   </div>
 </template>
+
+<style>
+.v-container {
+  max-width: 1200px;
+}
+</style>
