@@ -1,50 +1,18 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import chipInformation from "../core/chipInformation.vue";
+<script lang="ts" setup>
+import SingleBoardCalc from "@/core/SingleBoardCalc";
+import { computed, ComputedRef, ref } from "vue";
+import chipInformationVue from "../core/chipInformation.vue";
 
-export default defineComponent({
-  name: "VerticalDeskCalc",
-  data() {
-    return {
-      deskSize: null,
-      totalLength: null,
-    };
-  },
-  methods: {
-    clear() {
-      this.deskSize = null;
-      this.totalLength = null;
-    },
-  },
-  computed: {
-    calculateFullSizeDesks(): number {
-      if (!this.totalLength || !this.deskSize) {
-        return 0;
-      }
-      return Math.floor(this.totalLength / this.deskSize);
-    },
-    calculateMissingPart(): number {
-      if (!this.deskSize || !this.totalLength) {
-        return 0;
-      }
-      const sizeOfXDesk = this.calculateFullSizeDesks * this.deskSize;
-      return this.totalLength - sizeOfXDesk;
-    },
-    calculateCoverate(): number {
-      if (!this.deskSize) {
-        return 0;
-      }
-      return this.calculateFullSizeDesks * this.deskSize;
-    },
-    calculateClippings(): boolean {
-      if (!this.totalLength || !this.deskSize) {
-        return false;
-      }
-      return this.totalLength % this.deskSize > 0;
-    },
-  },
-  components: { chipInformation },
-});
+const deskSize = ref();
+const totalLength = ref();
+
+const singleBoardCalc: ComputedRef<SingleBoardCalc> = computed(
+  (): SingleBoardCalc => {
+    return new SingleBoardCalc(deskSize.value, totalLength.value);
+  }
+);
+
+const chipInformation = chipInformationVue;
 </script>
 
 <template>
@@ -66,17 +34,19 @@ export default defineComponent({
           <div>
             <h4>To cover you need:</h4>
             <h2>
-              Full desk {{ calculateFullSizeDesks }}
-              <small v-show="calculateClippings"> + 1 for clippings.</small>
+              Full desk {{ singleBoardCalc.countFullSizeBoards }}
+              <small v-show="singleBoardCalc.clippings">
+                + 1 for clippings.</small
+              >
             </h2>
             <h4>
               <ul>
                 <li>
-                  You cover: {{ calculateCoverate.toFixed(2)
+                  You cover: {{ singleBoardCalc.coverate.toFixed(2)
                   }}<small> (cm)</small>
                 </li>
                 <li>
-                  Missing part {{ calculateMissingPart.toFixed(2)
+                  Missing part {{ singleBoardCalc.missingPart.toFixed(2)
                   }}<small> (cm)</small>
                 </li>
               </ul>

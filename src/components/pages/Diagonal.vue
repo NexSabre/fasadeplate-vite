@@ -1,32 +1,16 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import chipInformation from "../core/chipInformation.vue";
+<script lang="ts" setup>
+import { ComputedRef, computed, ref } from "vue";
+import chipInformationVue from "../core/chipInformation.vue";
+import diagonalCalculation, { numberOrNull } from "@/core/DiagonalCalc";
 
-export default defineComponent({
-  name: "DiagonalVue",
-  data() {
-    return {
-      count: 0,
-      textFieldShort: null,
-      textFieldLong: null,
-    };
-  },
-  props: {
-    msg: String,
-  },
-  computed: {
-    calculate(): number {
-      if (!this.textFieldLong || !this.textFieldShort) {
-        return 0;
-      }
-      const floatCalc = Math.sqrt(
-        Math.pow(this.textFieldShort, 2) + Math.pow(this.textFieldLong, 2)
-      );
-      return floatCalc;
-    },
-  },
-  components: { chipInformation },
+const textFieldShort = ref();
+const textFieldLong = ref();
+
+const calculate: ComputedRef<numberOrNull> = computed((): numberOrNull => {
+  return diagonalCalculation(textFieldShort.value, textFieldLong.value);
 });
+
+const chipInformation = chipInformationVue;
 </script>
 
 <template>
